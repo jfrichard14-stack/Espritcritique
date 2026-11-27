@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Esprit Critique — jetons de design
+
+   Palette sobre, contrastée, pensée pour de la lecture longue :
+   fond légèrement chaud plutôt que blanc pur, un seul accent.
+   Chaque couleur est redéfinie en thème sombre.
+   ============================================================ */
+
+:root {
+  --fond: #fbfaf8;
+  --fond-eleve: #ffffff;
+  --fond-enfonce: #f3f1ec;
+  --encre: #1c1b19;
+  --encre-douce: #5d5a54;
+  --encre-tres-douce: #8b877e;
+  --bordure: #e4e1da;
+  --bordure-forte: #cdc9c0;
+  --accent: #3f5173;
+  --accent-encre: #2c3a54;
+  --accent-faible: #eceff6;
+  --succes: #2f6b4f;
+  --succes-faible: #e8f2ec;
+  --alerte: #8a6418;
+  --alerte-faible: #f7f0e2;
+  --danger: #8c2f2f;
+  --danger-faible: #f8eaea;
+  --ombre: 0 1px 2px rgb(28 27 25 / 0.04), 0 4px 12px rgb(28 27 25 / 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #141413;
+    --fond-eleve: #1c1b1a;
+    --fond-enfonce: #0f0f0e;
+    --encre: #ece9e3;
+    --encre-douce: #a8a49b;
+    --encre-tres-douce: #7d7a73;
+    --bordure: #302e2b;
+    --bordure-forte: #434039;
+    --accent: #8fa4cc;
+    --accent-encre: #b4c3e0;
+    --accent-faible: #1e2432;
+    --succes: #74b893;
+    --succes-faible: #16251d;
+    --alerte: #d0a861;
+    --alerte-faible: #27210f;
+    --danger: #d98b8b;
+    --danger-faible: #2a1818;
+    --ombre: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.2);
+  }
+}
+
+:root[data-theme="dark"] {
+  --fond: #141413;
+  --fond-eleve: #1c1b1a;
+  --fond-enfonce: #0f0f0e;
+  --encre: #ece9e3;
+  --encre-douce: #a8a49b;
+  --encre-tres-douce: #7d7a73;
+  --bordure: #302e2b;
+  --bordure-forte: #434039;
+  --accent: #8fa4cc;
+  --accent-encre: #b4c3e0;
+  --accent-faible: #1e2432;
+  --succes: #74b893;
+  --succes-faible: #16251d;
+  --alerte: #d0a861;
+  --alerte-faible: #27210f;
+  --danger: #d98b8b;
+  --danger-faible: #2a1818;
+  --ombre: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+@theme inline {
+  --color-fond: var(--fond);
+  --color-fond-eleve: var(--fond-eleve);
+  --color-fond-enfonce: var(--fond-enfonce);
+  --color-encre: var(--encre);
+  --color-encre-douce: var(--encre-douce);
+  --color-encre-tres-douce: var(--encre-tres-douce);
+  --color-bordure: var(--bordure);
+  --color-bordure-forte: var(--bordure-forte);
+  --color-accent: var(--accent);
+  --color-accent-encre: var(--accent-encre);
+  --color-accent-faible: var(--accent-faible);
+  --color-succes: var(--succes);
+  --color-succes-faible: var(--succes-faible);
+  --color-alerte: var(--alerte);
+  --color-alerte-faible: var(--alerte-faible);
+  --color-danger: var(--danger);
+  --color-danger-faible: var(--danger-faible);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino,
+    "Book Antiqua", Georgia, serif;
+
+  --shadow-carte: var(--ombre);
+}
+
+body {
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Le matériau à analyser — extrait de presse, argument à qualifier —
+   est composé en serif pour le distinguer nettement des consignes
+   de l'interface. */
+.stimulus {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* Anneau de focus visible partout : une plateforme pédagogique doit
+   rester utilisable entièrement au clavier. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
